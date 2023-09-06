@@ -29,9 +29,9 @@ export default function CrossStitchCalculator() {
   return (
     <div
       data-mode={isDarkMode ? "dark" : "light"}
-      className="grid min-h-screen place-items-center bg-primary-300 sm:bg-primary-100"
+      className="grid min-h-screen place-items-center bg-primary-300 dark:bg-primary-900 sm:bg-primary-100 dark:sm:bg-primary-700"
     >
-      <main className="grid-rows-primary grid max-w-md items-center gap-4 rounded-lg bg-primary-300 p-6 sm:shadow-lg">
+      <main className="grid-rows-primary grid max-w-md items-center gap-4 rounded-lg bg-primary-300 p-6 dark:bg-primary-900 sm:shadow-lg">
         <h1 className="text-center text-lg font-bold sm:text-xl">
           Cross Stitch Fabric Size Calculator
         </h1>
