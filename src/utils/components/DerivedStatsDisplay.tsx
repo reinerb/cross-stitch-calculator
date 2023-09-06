@@ -1,4 +1,3 @@
-import React from "react";
 import { StitchStats } from "../types/types";
 import { deriveStats } from "../functions/deriveStats";
 import DimensionsDisplay from "./DimensionsDisplay";
