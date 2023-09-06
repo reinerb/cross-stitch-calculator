@@ -51,7 +51,7 @@ function StatsForm({ stats, onChange, className }: Props) {
         />
       </div>
       <div className="form-group">
-        <label htmlFor="borderSize">Extra fabric for border</label>
+        <label htmlFor="borderSize">Extra fabric for border (inches)</label>
         <NumberInput
           name="borderSize"
           id="borderSize"
@@ -60,7 +60,9 @@ function StatsForm({ stats, onChange, className }: Props) {
         />
       </div>
       <div className="form-group">
-        <label htmlFor="finishingSize">Extra fabric for finishing</label>
+        <label htmlFor="finishingSize">
+          Extra fabric for finishing (inches)
+        </label>
         <NumberInput
           name="finishingSize"
           id="finishingSize"
