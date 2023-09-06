@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import StatsForm from "./utils/components/StatsForm";
 import DerivedStatsDisplay from "./utils/components/DerivedStatsDisplay";
-import { useDarkMode } from "usehooks-ts";
+import { useDarkMode, useLocalStorage } from "usehooks-ts";
 import type { StitchStats } from "./utils/types/types";
 import Footer from "./utils/components/Footer";
 import DarkModeSwitcher from "./utils/components/DarkModeSwitcher";
@@ -17,6 +17,7 @@ export default function CrossStitchCalculator() {
   };
 
   const [stats, setStats] = useState<StitchStats>(defaultStats);
+  const [metric] = useLocalStorage<boolean>("metric", false);
   const { isDarkMode, toggle } = useDarkMode();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
@@ -42,9 +43,10 @@ export default function CrossStitchCalculator() {
           <StatsForm
             stats={stats}
             onChange={handleChange}
+            metric={metric}
             className="row-span-2"
           />
-          <DerivedStatsDisplay stats={stats} />
+          <DerivedStatsDisplay stats={stats} metric={metric} />
         </main>
         <DarkModeSwitcher
           darkMode={isDarkMode}
