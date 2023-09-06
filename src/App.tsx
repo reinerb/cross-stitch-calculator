@@ -3,6 +3,7 @@ import StatsForm from "./utils/components/StatsForm";
 import DerivedStatsDisplay from "./utils/components/DerivedStatsDisplay";
 import { useDarkMode } from "usehooks-ts";
 import type { StitchStats } from "./utils/types/types";
+import Footer from "./utils/components/Footer";
 
 export default function CrossStitchCalculator() {
   const defaultStats: StitchStats = {
@@ -30,10 +31,10 @@ export default function CrossStitchCalculator() {
     <div className={isDarkMode ? "dark" : "light"}>
       <div
         className={
-          "grid min-h-screen place-items-center bg-primary-300 dark:bg-primary-900 sm:bg-primary-100 dark:sm:bg-primary-700"
+          "relative grid min-h-screen place-items-center bg-primary-300 text-slate-950 dark:bg-primary-900 dark:text-slate-50 sm:bg-primary-100 dark:sm:bg-primary-700"
         }
       >
-        <main className="grid-rows-primary grid max-w-md items-center gap-4 rounded-lg bg-primary-300 p-6 text-slate-950 dark:bg-primary-900 dark:text-slate-50 sm:shadow-lg">
+        <main className="grid-rows-primary grid max-w-md items-center gap-4 rounded-lg bg-primary-300 p-6 dark:bg-primary-900 sm:shadow-lg">
           <h1 className="text-center text-lg font-bold sm:text-xl">
             Cross Stitch Fabric Size Calculator
           </h1>
@@ -44,6 +45,7 @@ export default function CrossStitchCalculator() {
           />
           <DerivedStatsDisplay stats={stats} />
         </main>
+        <Footer className="sm:absolute sm:bottom-3 sm:right-3" />
       </div>
     </div>
   );

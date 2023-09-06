@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer components {
+  a {
+    @apply text-primary-700 transition-colors duration-200 hover:text-primary-600 dark:text-primary-300 dark:hover:text-primary-400;
+  }
+
   .form-group {
     @apply flex flex-col gap-1;
   }
