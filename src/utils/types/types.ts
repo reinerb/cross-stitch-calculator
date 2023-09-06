@@ -1,4 +1,13 @@
 export type StitchStats = {
+  width: string;
+  height: string;
+  threadCount: string;
+  threadCoverage: string;
+  borderSize: string;
+  finishingSize: string;
+};
+
+export type VerifiedStats = {
   width: number;
   height: number;
   threadCount: number;

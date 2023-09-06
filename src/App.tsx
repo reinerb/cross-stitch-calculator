@@ -7,12 +7,12 @@ import Footer from "./utils/components/Footer";
 
 export default function CrossStitchCalculator() {
   const defaultStats: StitchStats = {
-    width: 0,
-    height: 0,
-    threadCount: 0,
-    threadCoverage: 0,
-    borderSize: 0,
-    finishingSize: 0,
+    width: "",
+    height: "",
+    threadCount: "",
+    threadCoverage: "",
+    borderSize: "",
+    finishingSize: "",
   };
 
   const [stats, setStats] = useState<StitchStats>(defaultStats);
@@ -22,7 +22,7 @@ export default function CrossStitchCalculator() {
     setStats((prev) => {
       return {
         ...prev,
-        [e.target.name]: Number(e.target.value),
+        [e.target.name]: e.target.value,
       };
     });
   };
