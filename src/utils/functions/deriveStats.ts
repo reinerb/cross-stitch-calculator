@@ -1,7 +1,7 @@
 import { DerivedStitchStats, StitchStats, VerifiedStats } from "../types/types";
 
 function roundToEighth(n: number): number {
-  return Number((Math.round(n * 8) / 8).toFixed(3));
+  return Number((Math.ceil(n * 8) / 8).toFixed(3));
 }
 
 export function verifyStats(stats: StitchStats): VerifiedStats {
