@@ -1,7 +1,8 @@
 import { ChangeEvent, useState } from "react";
-import { StitchStats } from "./utils/types/types";
 import StatsForm from "./utils/components/StatsForm";
 import DerivedStatsDisplay from "./utils/components/DerivedStatsDisplay";
+import { useDarkMode } from "usehooks-ts";
+import type { StitchStats } from "./utils/types/types";
 
 export default function CrossStitchCalculator() {
   const defaultStats: StitchStats = {
@@ -14,6 +15,7 @@ export default function CrossStitchCalculator() {
   };
 
   const [stats, setStats] = useState<StitchStats>(defaultStats);
+  const { isDarkMode } = useDarkMode();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setStats((prev) => {
@@ -25,7 +27,10 @@ export default function CrossStitchCalculator() {
   };
 
   return (
-    <div className="grid min-h-screen place-items-center bg-primary-300 sm:bg-primary-100">
+    <div
+      data-mode={isDarkMode ? "dark" : "light"}
+      className="grid min-h-screen place-items-center bg-primary-300 sm:bg-primary-100"
+    >
       <main className="grid-rows-primary grid max-w-md items-center gap-4 rounded-lg bg-primary-300 p-6 sm:shadow-lg">
         <h1 className="text-center text-lg font-bold sm:text-xl">
           Cross Stitch Fabric Size Calculator
