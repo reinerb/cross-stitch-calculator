@@ -6,6 +6,7 @@ type NumberInputProps = {
   name: string;
   value: string | number | readonly string[] | undefined;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  placeholder?: string;
   className?: string;
 };
 
