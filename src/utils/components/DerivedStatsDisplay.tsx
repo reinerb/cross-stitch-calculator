@@ -12,7 +12,7 @@ function DerivedStatsDisplay({ stats }: Props) {
     deriveStats(stats);
 
   return (
-    <div className="grid grid-cols-2 items-center">
+    <div className="grid items-center gap-4 sm:grid-cols-2">
       <DimensionsDisplay
         title="Stitched Dimensions"
         width={stitchedWidth || 0}

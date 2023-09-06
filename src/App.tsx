@@ -25,9 +25,9 @@ export default function CrossStitchCalculator() {
   };
 
   return (
-    <div className="grid min-h-screen place-items-center bg-primary-100">
-      <main className="grid-rows-primary grid max-w-md items-center gap-4 rounded-lg bg-primary-300 p-6 shadow-lg">
-        <h1 className="text-center text-xl font-bold">
+    <div className="grid min-h-screen place-items-center bg-primary-300 sm:bg-primary-100">
+      <main className="grid-rows-primary grid max-w-md items-center gap-4 rounded-lg bg-primary-300 p-6 sm:shadow-lg">
+        <h1 className="text-center text-lg font-bold sm:text-xl">
           Cross Stitch Fabric Size Calculator
         </h1>
         <StatsForm

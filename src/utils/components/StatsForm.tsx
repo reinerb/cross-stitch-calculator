@@ -10,7 +10,9 @@ type Props = {
 
 function StatsForm({ stats, onChange, className }: Props) {
   return (
-    <form className={twMerge("grid grid-cols-2 gap-2", className)}>
+    <form
+      className={twMerge("grid grid-cols-1 gap-2 sm:grid-cols-2", className)}
+    >
       <div className="form-group">
         <label htmlFor="width">Width</label>
         <input
@@ -33,7 +35,7 @@ function StatsForm({ stats, onChange, className }: Props) {
           min={0}
         />
       </div>
-      <div className="form-group col-span-2">
+      <div className="form-group">
         <label htmlFor="threadCount">Fabric thread count</label>
         <input
           type="number"
@@ -44,7 +46,7 @@ function StatsForm({ stats, onChange, className }: Props) {
           min={0}
         />
       </div>
-      <div className="form-group col-span-2">
+      <div className="form-group">
         <label htmlFor="threadCoverage">Threads covered by each cross</label>
         <input
           type="number"
@@ -55,7 +57,7 @@ function StatsForm({ stats, onChange, className }: Props) {
           min={0}
         />
       </div>
-      <div className="form-group col-span-2">
+      <div className="form-group">
         <label htmlFor="borderSize">Extra fabric for border</label>
         <input
           type="number"
@@ -66,7 +68,7 @@ function StatsForm({ stats, onChange, className }: Props) {
           min={0}
         />
       </div>
-      <div className="form-group col-span-2">
+      <div className="form-group">
         <label htmlFor="finishingSize">Extra fabric for finishing</label>
         <input
           type="number"
