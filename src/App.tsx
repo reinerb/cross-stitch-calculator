@@ -72,7 +72,7 @@ export default function CrossStitchCalculator() {
           <MetricToggle
             metric={metric}
             toggle={toggleMetric}
-            className="absolute right-3 top-3"
+            className="absolute bottom-3 right-3 sm:bottom-auto sm:top-3"
           />
         </main>
         <DarkModeSwitcher
