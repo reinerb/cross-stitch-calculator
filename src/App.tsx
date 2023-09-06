@@ -5,6 +5,7 @@ import { useDarkMode, useLocalStorage } from "usehooks-ts";
 import type { StitchStats } from "./utils/types/types";
 import Footer from "./utils/components/Footer";
 import DarkModeSwitcher from "./utils/components/DarkModeSwitcher";
+import MetricToggle from "./utils/components/MetricToggle";
 
 export default function CrossStitchCalculator() {
   const defaultStats: StitchStats = {
@@ -17,7 +18,7 @@ export default function CrossStitchCalculator() {
   };
 
   const [stats, setStats] = useState<StitchStats>(defaultStats);
-  const [metric] = useLocalStorage<boolean>("metric", false);
+  const [metric, setMetric] = useLocalStorage<boolean>("metric", false);
   const { isDarkMode, toggle } = useDarkMode();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
@@ -27,6 +28,27 @@ export default function CrossStitchCalculator() {
         [e.target.name]: e.target.value,
       };
     });
+  };
+
+  const toggleMetric = () => {
+    if (metric) {
+      setStats((prev) => {
+        return {
+          ...prev,
+          borderSize: String(Number(prev.borderSize) / 2.5),
+          finishingSize: String(Number(prev.finishingSize) / 2.5),
+        };
+      });
+    } else {
+      setStats((prev) => {
+        return {
+          ...prev,
+          borderSize: String(Number(prev.borderSize) * 2.5),
+          finishingSize: String(Number(prev.finishingSize) * 2.5),
+        };
+      });
+    }
+    setMetric((prev) => !prev);
   };
 
   return (
@@ -47,6 +69,11 @@ export default function CrossStitchCalculator() {
             className="row-span-2"
           />
           <DerivedStatsDisplay stats={stats} metric={metric} />
+          <MetricToggle
+            metric={metric}
+            toggle={toggleMetric}
+            className="absolute right-3 top-3"
+          />
         </main>
         <DarkModeSwitcher
           darkMode={isDarkMode}
