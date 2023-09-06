@@ -13,6 +13,12 @@ function DerivedStatsDisplay({ stats }: Props) {
 
   return (
     <div className="grid items-center gap-4 sm:grid-cols-2">
+      <section className="col-span-full flex flex-col items-center gap-2">
+        <h2 className="text-center text-lg font-semibold">Total Stitches</h2>
+        <p className="text-center text-xl font-bold">
+          {stats.width * stats.height}
+        </p>
+      </section>
       <DimensionsDisplay
         title="Stitched Dimensions"
         width={stitchedWidth || 0}
