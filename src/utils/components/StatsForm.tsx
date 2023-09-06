@@ -3,13 +3,14 @@ import { StitchStats } from "../types/types";
 import { twMerge } from "tailwind-merge";
 import NumberInput from "./NumberInput";
 
-type Props = {
+type StatsFormProps = {
   stats: StitchStats;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  metric: boolean;
   className?: string;
 };
 
-function StatsForm({ stats, onChange, className }: Props) {
+function StatsForm({ stats, onChange, metric, className }: StatsFormProps) {
   return (
     <form
       className={twMerge("grid grid-cols-1 gap-2 sm:grid-cols-2", className)}
@@ -51,7 +52,9 @@ function StatsForm({ stats, onChange, className }: Props) {
         />
       </div>
       <div className="form-group">
-        <label htmlFor="borderSize">Extra fabric for border (in)</label>
+        <label htmlFor="borderSize">
+          Extra fabric for border ({metric ? "cm" : "in"})
+        </label>
         <NumberInput
           name="borderSize"
           id="borderSize"
@@ -60,7 +63,9 @@ function StatsForm({ stats, onChange, className }: Props) {
         />
       </div>
       <div className="form-group">
-        <label htmlFor="finishingSize">Extra fabric for finishing (in)</label>
+        <label htmlFor="finishingSize">
+          Extra fabric for finishing ({metric ? "cm" : "in"})
+        </label>
         <NumberInput
           name="finishingSize"
           id="finishingSize"

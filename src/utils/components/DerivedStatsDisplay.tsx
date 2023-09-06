@@ -4,12 +4,13 @@ import DimensionsDisplay from "./DimensionsDisplay";
 
 type Props = {
   stats: StitchStats;
+  metric: boolean;
 };
 
-function DerivedStatsDisplay({ stats }: Props) {
+function DerivedStatsDisplay({ stats, metric }: Props) {
   const { width, height } = verifyStats(stats);
   const { stitchedWidth, stitchedHeight, totalWidth, totalHeight } =
-    deriveStats(stats);
+    deriveStats(stats, metric);
 
   return (
     <div className="grid items-center gap-4 sm:grid-cols-2">
@@ -21,11 +22,13 @@ function DerivedStatsDisplay({ stats }: Props) {
         title="Stitched Dimensions"
         width={stitchedWidth || 0}
         height={stitchedHeight || 0}
+        metric={metric}
       />
       <DimensionsDisplay
         title="Total Dimensions"
         width={totalWidth || 0}
         height={totalHeight || 0}
+        metric={metric}
       />
     </div>
   );

@@ -16,7 +16,10 @@ export function verifyStats(stats: StitchStats): VerifiedStats {
   return verifiedStats as VerifiedStats;
 }
 
-export function deriveStats(stats: StitchStats): DerivedStitchStats {
+export function deriveStats(
+  stats: StitchStats,
+  metric: boolean,
+): DerivedStitchStats {
   const {
     width,
     height,
@@ -26,8 +29,12 @@ export function deriveStats(stats: StitchStats): DerivedStitchStats {
     finishingSize,
   } = verifyStats(stats);
 
-  const stitchedWidth = roundToEighth(width / (threadCount / threadCoverage));
-  const stitchedHeight = roundToEighth(height / (threadCount / threadCoverage));
+  const stitchedWidth = roundToEighth(
+    (width / (threadCount / threadCoverage)) * (metric ? 2.54 : 1),
+  );
+  const stitchedHeight = roundToEighth(
+    (height / (threadCount / threadCoverage)) * (metric ? 2.54 : 1),
+  );
   const totalWidth = stitchedWidth + borderSize * 2 + finishingSize * 2;
   const totalHeight = stitchedHeight + borderSize * 2 + finishingSize * 2;
 
