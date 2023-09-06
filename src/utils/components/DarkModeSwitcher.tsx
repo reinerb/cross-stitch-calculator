@@ -15,7 +15,7 @@ function DarkModeSwitcher({ darkMode, toggle, className }: Props) {
       className={className}
       aria-label="dark-mode-toggle"
     >
-      <FontAwesomeIcon icon={darkMode ? faMoon : faSun} className="text-lg" />
+      <FontAwesomeIcon icon={darkMode ? faMoon : faSun} />
     </button>
   );
 }

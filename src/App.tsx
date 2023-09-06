@@ -45,12 +45,12 @@ export default function CrossStitchCalculator() {
             className="row-span-2"
           />
           <DerivedStatsDisplay stats={stats} />
-          <DarkModeSwitcher
-            darkMode={isDarkMode}
-            toggle={toggle}
-            className="absolute bottom-2 right-3 sm:bottom-auto sm:top-3"
-          />
         </main>
+        <DarkModeSwitcher
+          darkMode={isDarkMode}
+          toggle={toggle}
+          className="absolute right-5 top-5 text-2xl"
+        />
         <Footer className="sm:absolute sm:bottom-3 sm:right-3" />
       </div>
     </div>
