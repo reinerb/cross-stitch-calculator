@@ -8,6 +8,8 @@ Has a light/dark mode toggle and an imperial/metric units toggle.
 
 Download the repository and then run `npm install`.
 
+A live version is available [here](https://stitch-calculator.vercel.app/).
+
 ## Technologies used
 
 - React (through Vite)
